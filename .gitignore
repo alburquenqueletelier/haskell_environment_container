@@ -1,0 +1,6 @@
+## Ignorar archivos sin extensión
+**/[!.]*[^./]
+
+## ignorar archivos de compilación
+*.hi
+*.o
