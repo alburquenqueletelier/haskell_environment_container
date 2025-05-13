@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y entr
 WORKDIR /app
 
 # Copia tu archivo Haskell al contenedor (se asegura de que no haya conflictos)
-COPY ejemplo.hs /app/
+COPY *.hs /app/
 
 # Compila y ejecuta el archivo Haskell
 RUN ["ghc" ,"-o" , "ejemplo", "ejemplo.hs"]

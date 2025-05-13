@@ -4,3 +4,4 @@
 ## ignorar archivos de compilación
 *.hi
 *.o
+*.docx
