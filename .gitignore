@@ -1,7 +1,10 @@
-## Ignorar archivos sin extensión
-**/[!.]*[^./]
+# Ignorar archivos sin extensión en la raíz y subdirectorios
+**/*/
+**/*.*        # NO ignorar
+!**/*.*       # Asegura que los archivos con extensión NO sean ignorados
 
-## ignorar archivos de compilación
+
+# ignorar archivos de compilación
 *.hi
 *.o
 *.docx
