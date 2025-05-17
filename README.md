@@ -5,7 +5,7 @@
 
 1. Se crea la imagen. **Si ya está creada, sigue al siguiente paso.**
 ```
-docker build haskell-environment .
+docker build -t haskell-environment .
 ```
 
 2. Crear una instancia del contenedor con terminal bash. **Si ya tienes una instancia creada, sigue el paso 2.1**
