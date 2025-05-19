@@ -34,8 +34,10 @@ Entorno Docker reproducible para compilar, ejecutar y recargar proyectos Haske
 ```bash
 git clone https://github.com/alburquenqueletelier/haskell_environment_container.git
 cd haskell_environment_container
-bash setup.sh      # construye la imagen y el contenedor `haskell_container`
+./setup.sh      # construye la imagen y el contenedor `haskell_container`
 ```
+
+**Nota:** si `./setup.sh` falla haz click [aquí para ver como solucionarlo](##problemas-conocidos)
 
 > La primera vez tarda unos minutos (descarga de imagen + compilación).
 
@@ -104,6 +106,7 @@ bash setup.sh
 | `entr: orden no encontrada` | El paquete no se instaló: reconstruye la imagen (`docker build …`).                                                                           |
 | Cambios no recompilan       | Asegúrate de editar archivos dentro del repo montado (`$(pwd)`); verifica que entr liste el archivo con `ls /app/*.hs` dentro del contenedor. |
 | `hGetLine: end of file`     | Ejecutaste el binario sin TTY (`-it`); usa `bash init.sh`.                                                                                    |
+| `Permiso denegado`          | El archivo no tiene permisos de ejecución; usa `chmod +x nombre_archivo.sh`. Si el error persiste, prueba con `bash nombre_archivo.sh`                                                                      |
 
 ## Contribuir
 
