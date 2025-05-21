@@ -1,38 +1,32 @@
 import System.IO
+import Control.Exception (try, IOException)
 
 -- define estructura string
-type Tablero = [[Char]]
-
-prueba = print("Hola Programador")
-prueba2 = "hola hola"
-minimo = min 3 2
-suma a b = a + b
-
-parImpar x = if x `mod` 2 == 0 then "par" else "impar"
+type Table = [[Char]]
 
 main :: IO ()
 main = do
-    putStrLn "¡Hola Mundo desde Haskell!"
-    putStrLn "¿Cómo te llamas?"
-    nombre <- getLine
-    putStrLn ("Hola, " ++ nombre ++ "!")
+    putStrLn "Encontrando rutas para salir del laberinto de Creta..."
+    getTable <- parseFile "input.txt"
+    let isTable = case getTable of
+            Left e  -> Nothing
+            Right c -> Just c
 
-    putStrLn ("Ingresa primer num")
-    a <- getLine
-    putStrLn ("Ingresa segundo num")
-    b <- getLine
-
-    -- funcion suma (falta completar)
-    putStrLn("La suma es: " )
-
-    putStrLn ("a = " ++ a)
-    putStrLn ("b = " ++ b)
-
-    -- lectura de contenido de archivo
-    contenido <- readFile "input.txt"
-    let tablero = lines contenido  -- NO eliminamos espacios, cada línea debe tener exactamente 3 caracteres
-    print tablero
+    case isTable of
+        Nothing -> putStrLn "Error al crear el tablero"
+        Just _  -> putStrLn "Tablero creado con exito"
     
-main2 = do
-    respuesta <- getLine
-    putStrLn ("TU respuesta es: " ++ respuesta)
+    let table = maybe [] id isTable
+    print table -- para debug
+    mapM_ (putStrLn . (:[])) (concat table)
+
+parseFile :: FilePath -> IO(Either String Table)
+parseFile path = do
+    putStrLn "Leyendo archivo de tablero .txt ..."
+    -- lectura de contenido de archivo
+    content <- try (readFile path) :: IO (Either IOException String)
+    return $ case content of
+        Left e -> Left $ show e
+        Right c -> Right $ lines c  -- NO eliminamos espacios, cada línea debe tener exactamente 3 caracteres
+    
+

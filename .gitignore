@@ -5,6 +5,7 @@ app
 *.hi
 *.o
 *.docx
+*.docx#
 
 # Ignora archivos de registros/logs
 *.log
