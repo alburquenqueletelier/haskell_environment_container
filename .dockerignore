@@ -4,3 +4,5 @@
 *.log
 *.hi
 *.o
+
+.build/

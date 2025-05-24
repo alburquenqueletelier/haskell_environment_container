@@ -2,10 +2,11 @@
 app
 
 # ignorar archivos de compilación
-*.hi
-*.o
-*.docx
-*.docx#
+.build/
 
 # Ignora archivos de registros/logs
 *.log
+
+# Ignora archivos de documentos
+*.docx
+*.docx#

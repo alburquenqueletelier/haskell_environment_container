@@ -4,6 +4,7 @@ import Control.Exception (try, IOException)
 -- define estructura string
 type Table = [[Char]]
 
+
 main :: IO ()
 main = do
     putStrLn "Encontrando rutas para salir del laberinto de Creta..."
@@ -29,4 +30,3 @@ parseFile path = do
         Left e -> Left $ show e
         Right c -> Right $ lines c  -- NO eliminamos espacios, cada línea debe tener exactamente 3 caracteres
     
-
