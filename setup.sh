@@ -23,9 +23,8 @@ fi
 echo "Iniciando entr para compilar el proyecto"
 
 echo "Compilando una vez para generar el binario inicial…"
-docker exec haskell_container ghc -o /app/app -odir /app/.build -hidir /app/.build /app/app.hs
-
+docker exec haskell_container ghc -o /app/app -odir /app/.build -hidir /app/.build -i. App.hs
 echo "Arrancando compilador automático. Esto bloquea la terminal..."
 
 docker exec -it haskell_container bash -c \
-  'cd /app && ls *.hs | entr -r ghc -o app -odir /app/.build -hidir /app/.build app.hs'
+  'cd /app && ls *.hs Utils/*.hs | entr -r ghc -o app -odir .build -hidir .build -i. App.hs'

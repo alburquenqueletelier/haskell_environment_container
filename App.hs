@@ -1,14 +1,20 @@
+module Main where
+
+-- Import native modules
 import System.IO
 import Control.Exception (try, IOException)
 
--- define estructura string
-type Table = [[Char]]
+-- Import Utils modules
+import Utils.ParseTable
+
+-- Import Types
+import Types.Table (Table)
 
 
 main :: IO ()
 main = do
     putStrLn "Encontrando rutas para salir del laberinto de Creta..."
-    getTable <- parseFile "input.txt"
+    getTable <- Utils.ParseTable.parseTable "input.txt"
     let isTable = case getTable of
             Left e  -> Nothing
             Right c -> Just c
@@ -21,12 +27,3 @@ main = do
     print table -- para debug
     mapM_ (putStrLn . (:[])) (concat table)
 
-parseFile :: FilePath -> IO(Either String Table)
-parseFile path = do
-    putStrLn "Leyendo archivo de tablero .txt ..."
-    -- lectura de contenido de archivo
-    content <- try (readFile path) :: IO (Either IOException String)
-    return $ case content of
-        Left e -> Left $ show e
-        Right c -> Right $ lines c  -- NO eliminamos espacios, cada línea debe tener exactamente 3 caracteres
-    

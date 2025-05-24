@@ -5,4 +5,4 @@
 *.hi
 *.o
 
-.build/
+Build
