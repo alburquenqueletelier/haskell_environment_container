@@ -12,7 +12,4 @@ WORKDIR /app
 # Copia tu archivo Haskell al contenedor (se asegura de que no haya conflictos)
 COPY *.hs /app/
 
-# Compila y ejecuta el archivo Haskell
-RUN ["ghc" ,"-o" , "ejemplo", "ejemplo.hs"]
-
-
+COPY *.txt /app/

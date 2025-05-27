@@ -1,0 +1,8 @@
+*.docx
+*.md
+*.sh
+*.log
+*.hi
+*.o
+
+Build

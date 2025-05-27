@@ -1,10 +1,12 @@
-# Ignorar archivos sin extensión en la raíz y subdirectorios
-**/*/
-**/*.*        # NO ignorar
-!**/*.*       # Asegura que los archivos con extensión NO sean ignorados
-
+# Ignorar binario app
+app
 
 # ignorar archivos de compilación
-*.hi
-*.o
+Build/
+
+# Ignora archivos de registros/logs
+*.log
+
+# Ignora archivos de documentos
 *.docx
+*.docx#
