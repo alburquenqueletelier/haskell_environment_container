@@ -1,5 +1,4 @@
 -- ejemplo.hs
-
 prueba = print("Hola Programador")
 prueba2 = "hola hola"
 minimo = min 3 2

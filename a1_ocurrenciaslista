@@ -1,0 +1,9 @@
+main :: IO ()
+main = do
+    let lista = [1,1,1,1,2,2,2,3,3,4]
+    putStrLn ("la lista es " ++ show lista)
+    putStrLn "que numero quieres contar"
+    input <- getLine
+    let numero = read input :: Int
+    let ocurrencias = length (filter (\x -> x == numero) lista)
+    putStrLn ("el numero " ++ show numero ++ " aparece " ++ show ocurrencias ++ " veces en la lista")
